@@ -56,7 +56,7 @@ We clicked on 'Daxin' from the last screen. Here's some background information o
 ### Themes, themes, themes...
 [Obsidian](https://obsidian.md) has a huge theme collection, the screenshots above are the 'Dracula' theme, this is the default Obsidian light theme.
 
-It's also infinitely configurable, so you're bound to find something you like. If you find one that works better for 'First Contact', please share it!
+It's also extensively configurable, so you're bound to find something you like. If you find one that works better for 'First Contact', please share it!
 ![default light theme](assets/default_theme.png)
 
 ## I'm sold, gimme!
