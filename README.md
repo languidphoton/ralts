@@ -1,17 +1,21 @@
-# 'First Contact' story downloader/processor
+# Ralts - a 'First Contact' story downloader/processor
+
+> This page is a 'trial balloon' set up for people on the Discord server
 
 ## What's this about?
+
+This tool downloads and processes the _First Contact_ stories from `r/HFY`.
 
 If you're not familiar with [HFY](https://old.reddit.com/r/HFY/), you're missing out. I'll let r/HFY introduce itself:
 
 > We're a writing focused subreddit welcoming all media exhibiting the awesome potential of humanity, known as HFY or "Humanity, Fuck Yeah!"
 > We welcome sci-fi, fantasy, and all other stories with a focus on humans being awesome!
 
-The 'First Contact' HFY stories by `u/Ralts_Bloodthorne`, which started on 25th Feb 2020 with a quirky story about an alien who likes ice cream has developed through a phenomenal output, sometimes 4 stories a day, into a huge corpus of 721 stories and 2,034,125 words (at the time of writing). 
+The 'First Contact' HFY stories by `u/Ralts_Bloodthorne`, started on 25th Feb 2020 with a single quirky story about an alien who likes ice cream through to a huge corpus of 721 stories and 2,034,125 words (at the time of writing). Ralts' output has been phenomenal, sometimes posting 4 stories a day, and in the process occasionally triggering some Reddit spam filters! 
 
-There's at least 100 characters and over 25 races in the First Contact universe and it can be difficult keeping up. That's one reason for making this tool. Another one is that it's crystal clear from the comments that `ralts`'s work has helped some people get through some extraordinarily difficult times, and I don't think it's an exaggeration to say that the stories have saved some lives.
+There's at least 100 characters and over 25 races in the _First Contact_ universe and it can be difficult keeping up. That's one reason for making this tool. Another one is that it's crystal clear from the comments that `ralts`'s work has helped many people get through some extraordinarily difficult times, and I don't think it's an exaggeration to say that the stories and community built up around them have saved some lives. Hopefully this tool helps that community wander through the _First Contact_ universe more easily.
 
-The tool works in tandem with the [Obsidian](https://obsidian.md) knowledge base, which is sometimes touted as a 'second brain'. Obsidian is extensible through a vibrant third-party plugins and theming community which has made some exceptional plugins.
+The tool works in tandem with the increasingly popular [Obsidian](https://obsidian.md) knowledge base, which is sometimes touted as a 'second brain'. Obsidian hosts all files locally, is free to use and is extensible through a vibrant third-party plugins and theming community which has made some exceptional plugins.
 
 ## What does it do?
 
@@ -23,45 +27,73 @@ is converted into this:
 
 >[[Herod]] watched as [[Legion|Victor]] stood perfectly still for a long moment, his eyes closed. [[Herod]] could see dozens of VR versions of the human moving at high speed through the VR spaces of  the Black Box and knew that the thousands of clones of [[Legion|Victor]]/[[Legion|Dhruv]] were working hard even as [[Legion]] stood stock still in the middle of the room with his eyes closed.
 
-The `[[Herod]]` code 's the Obsidian method of linking to a page called 'Herod' and the `[[Legion|Victor]]` code means that the word 'Victor' is shown as the link text, whilst the link is going to the page called 'Legion'. You might ask "who's this guy Legion and why is he known by so many names?". Well, that would be telling...
+The `[[Herod]]` code is the Obsidian method of linking to a page called 'Herod' and the `[[Legion|Victor]]` code means that the word 'Victor' is shown as the link text, whilst the link is going to the page called 'Legion'. You might ask "who's this guy Legion and why is he known by so many names?". Well, that would be telling...
 
-This is what it looks like in Obsidian, the underlined text goes to pages about the characters:
+This is what it eventally looks like in Obsidian, the underlined text goes to pages about the characters, the 'Herod' link goes to one page, and the 'Victor', 'Dhruv' and 'Legion' links all go the same page, 'Legion':
+
 ![Herod and Legion/Victor/Dhruv](assets/herod_and_legion.png)
 
 Talking of screenshots...
 
 ## What does the output look like?
 
-### All stories
+### Story listing
 
-This page shows all the stories that have been processed.
+This page shows all the stories that have been processed. It's based on the `dataview` plugin of Obsidian, which has some SQL-like properties which can use metadata from each story, such as the story 'Score', 'Wordcount' and the date the story was 'Published' to create dynamic lists as shown below.
 
 ![all stories](assets/all_stories.png)
 
-### A single story
-With a character, 'Speaks' highlighted, showing that there's more information available about them. You can navigate between the previous and next story quite easily, and as you can see from the text, there's a *lot* of action in 'First Contact' stories.
+### Reading a single story
+The character 'Speaks' is highlighted, showing that there's more information available about them, such as all the stories they appear in. You can navigate between the previous and next story quite easily, and as you can see from the text, there's a *lot* of action in _First Contact_ stories.
 ![single-story](assets/story_overview.png)
 
-### Detailed information
+### Detailed information about a story
 The 'Information about this story....' block links to the main characters in this particular story, along with races present, and the races of those characters.
 ![story detail](assets/story_detail.png)
 
-There's also a lot of metadata in a story, and part of that is shown below. It's particularly useful when used in conjunction with Obsidian.
+There's also a lot of metadata in a story, and part of that is shown below. It's particularly useful when used in conjunction with Obsidian and the `dataview` plugin in particular.
 ![metadata](assets/metadata.png)
 
 ### Character detail
 We clicked on 'Daxin' from the last screen. Here's some background information on him, and what stories he's either in, or mentioned in. For Daxin, that's a lot.
 ![Daxin detail](assets/daxin.png)
 
+
 ### Themes, themes, themes...
 [Obsidian](https://obsidian.md) has a huge theme collection, the screenshots above are the 'Dracula' theme, this is the default Obsidian light theme.
 
-It's also extensively configurable, so you're bound to find something you like. If you find one that works better for 'First Contact', please share it!
+It's also extensively configurable, so you're bound to find something you like. If you find one that works better for _First Contact_, please share it!
 ![default light theme](assets/default_theme.png)
 
 ## I'm sold, gimme!
 
 As they used to say on the box, there's _some assembly required_. 
+
+The code is written in python3, and you'll need to install some additional libraries to make it work.
+
+### Installing
+
+Clone this repository into a folder, you'll end up with this
+```
+README.md
+assets
+ralts.py
+datastructs.py
+novaspark.py
+```
+
+The main program is `ralts.py`, and you'll interact with this most of the time. `datastructs.py` holds definitions of who is a main character, their aliases if they have any, what race they are a part of, planets and other objects of interest. `novaspark.py` is optional, but it's very helpful to create (and delete) stub files for the over 100 characters ralts has created, as well as races and objects of interest. It's called `novaspark.py` to warn you it has some power...
+
+
+
+```
+% python3 pip install -r requirements.txt
+
+# or you can install the modules separately
+% python3 pip install pathlib docopt PyYAML rich bdfr
+```
+
+The `bdfr` module is a multi-purpose Reddit post downloader, and loads in quite a few other modules. 
 
 Here's the output of the `./ralts.py -h` command:
 
@@ -103,7 +135,7 @@ Commands:
     suds            Process stories and add Obsidian features ([[ ]] etc)
     cloud           Synchronise local Obsidian files with your cloud provider folder
     mattrans        Download posts by u/Ralts_Bloodthorne from Reddit. Not just from HFY!
-    blueberries     Gets the last 5 stories, processes them and copies them to your cloud folder
+    blueberries     Gets the last <storycount> stories, processes them and copies them to your cloud folder
 
 Options:
     -all                Process/Download all stories [default: False]
@@ -115,4 +147,22 @@ Options:
     --version           Show version [default: __version__]
 ```
 
-If you've read the 'First Contact' stories you'll understand why I've chosen `suds`, `mattrans` and `blueberries` for commands, if you haven't then it's something else to look forward to.
+If you've read the _First Contact_ stories you'll understand why I've chosen `suds`, `mattrans` and `blueberries` for commands, if you haven't then it's something else to look forward to.
+
+An initial run might look something like:
+
+```
+# download the posts from Reddit
+
+% ./ralts.py mattrans --all
+This is the first time running ralts.py. 
+Setting up a default configuration in config/config.yml. Change parameters to your
+liking and re-run.
+Configuration file config/config.yml newly written. Exiting...
+
+# now the config file is created
+% ./ralts.py mattrans --all
+Reading from config file: config/config.yml
+You're going to download 700+ stories, sure? [y/n]: 
+
+```
