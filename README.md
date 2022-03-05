@@ -84,9 +84,19 @@ If this sounds like something you'd be interested in, read on...
 
 As they used to say on the box, there's _some assembly required_.
 
-The code is written in python3, and you'll need to install some additional libraries to make it work.
+You'll need:
 
-Clone this repository into a folder, you'll end up with this
+- a `python3` installation set up
+- some familiarity with the command line (not much!)
+- a working knowledge of [Obsidian](https://obsidian.md)
+- possibly a `git` installation if you choose to clone this repository
+
+The code is written in `python3`, and you'll need to install some additional libraries to make it work.
+
+You can get the code using either `git` or a downloadable release. If you're comfortable with `git` then clone the repository, otherwise download the `.zip` file and expand it into a folder.
+
+Whether you clone the repositry, or download a release, you'll end up with this set of files.
+
 ```
 README.md
 assets
@@ -98,7 +108,6 @@ novaspark.py
 The main program is `ralts.py`, and you'll interact with this most of the time. `datastructs.py` holds definitions of who is a main character, their aliases if they have any, what race they are a part of, planets and other objects of interest. `novaspark.py` is optional, but it's very helpful to create (and delete) stub files for the over 100 characters ralts has created, as well as races and objects of interest. It's called `novaspark.py` to warn you it has some power...
 
 
-
 ```
 % python3 pip install -r requirements.txt
 
@@ -106,7 +115,7 @@ The main program is `ralts.py`, and you'll interact with this most of the time. 
 % python3 pip install pathlib docopt PyYAML rich bdfr
 ```
 
-The `bdfr` module is a multi-purpose Reddit post downloader, and loads in quite a few other modules.
+The `bdfr` module is a large multi-purpose Reddit post downloader, and loads in quite a few other modules.
 
 Here's the output of the `./ralts.py -h` command:
 
@@ -233,7 +242,7 @@ Notice that all these are all `JSON` files.
 
 ### Using 'suds' to process files into stories
 
-To process the files into for usage in Obsidian can, you use the `suds` command.
+To process the files for usage as stories in Obsidian, you use the `suds` command.
 
 ```
 % python3 ralts.py suds --all
@@ -247,7 +256,7 @@ Stories... ━━━━━━━━━━━━━━━━━━━━━━━
 ```
 It takes about 2 minutes to process all the stories on my aging MacBook Air.
 
-The stories are now processed and in a folder called `Stories` of the `obsidian_folder`, and will look something like this:
+The stories are now processed into `markdown` files, and in a folder called `Stories` of the `obsidian_folder`, and will look something like this:
 
 ```
 % ls -1 First\ Contact/Stories
@@ -387,11 +396,11 @@ sent 304868 bytes  received 142 bytes  610020.00 bytes/sec
 total size is 41587499  speedup is 136.35
 ```
 
-That's it, you've now downloaded all the stories, processed them and are ready to use Obsidian to read them, except it's a bit dull at the moment - there's no links to any characters, groups, races, objects and other interesting things. That's where `novaspark.py` comes in.
+That's it, you've now downloaded all the files, processed them into stories and are ready to use Obsidian to read them, except it's a bit dull at the moment - there's no links to any characters, groups, races, objects and other interesting things. That's where `novaspark.py` comes in.
 
 ### Using novaspark.py to create story stubs
 
-At the moment, if you point Obsidian at the `obsidian_folder` you're not going to see too much.
+At the moment, if you point Obsidian at the `obsidian_folder` you're not going to see too much. It's also using the default theme, not the 'Dracula' theme I showed above.
 
 ![721 stories - how do I read them?](assets/new_obsidian_view.png)
 
@@ -403,7 +412,7 @@ Stories
 
 This is where `novaspark.py` comes in, it creates stubs for 134 characters, various groups, races, planets, ships and other interesting objects and events that occur in the _First Contact_ universe.
 
-There are several templates in the `novaspark.py` script that can be modified. There are separate templates for characters, objects and another group of files which create pages like the 'List of Stories' page shown above. To really benefit from the templates, you'll need to install the `dataview` plugin into Obsidian, which is described below.
+There are several templates in the `novaspark.py` script that can be modified. There are separate templates for characters, objects and another group of files which create pages like the 'List of Stories' page shown above. To really benefit from the templates, you'll need to install the `dataview` plugin into Obsidian, and how to do this is described below.
 
 ```
 % python3 ./novaspark.py -h
