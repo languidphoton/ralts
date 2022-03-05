@@ -12,7 +12,7 @@
     - [Using 'mattrans' - getting files from Reddit](#using-mattrans---getting-files-from-reddit)
     - [Using 'suds' to process files into stories](#using-suds-to-process-files-into-stories)
     - [Using 'cloud' to copy files to your cloud service](#using-cloud-to-copy-files-to-your-cloud-service)
-- [Using novaspark.py to create story stubs](#using-novasparkpy-to-create-story-stubs)
+    - [Using novaspark.py to create story stubs](#using-novasparkpy-to-create-story-stubs)
 - [Setting up Obsidian](#setting-up-obsidian-to-use-dataview-and-admonitions)
 
 ## What's this about?
@@ -78,13 +78,13 @@ We clicked on 'Daxin' from the last screen. Here's some background information o
 It's also extensively configurable, so you're bound to find something you like. If you find one that works better for _First Contact_, please share it!
 ![default light theme](assets/default_theme.png)
 
-## I'm sold, gimme!
+If this sounds like something you'd be interested in, read on...
+
+## Installing
 
 As they used to say on the box, there's _some assembly required_.
 
 The code is written in python3, and you'll need to install some additional libraries to make it work.
-
-### Installing
 
 Clone this repository into a folder, you'll end up with this
 ```
@@ -162,7 +162,7 @@ Options:
 
 If you've read the _First Contact_ stories you'll understand why I've chosen `suds`, `mattrans` and `blueberries` for commands, if you haven't then it's something else to look forward to.
 
-### Typical Usage
+## Typical Usage
 
 An initial run might look something like:
 
@@ -231,7 +231,7 @@ Ralts_Bloodthorne_Born Whole_f9porg.json
 
 Notice that all these are all `JSON` files.
 
-#### Using 'suds' to process files into stories
+### Using 'suds' to process files into stories
 
 To process the files into for usage in Obsidian can, you use the `suds` command.
 
@@ -272,7 +272,7 @@ Third Wave - Chapter 421_liu59d.md
 XXX - INTERLUDE_id05mr.md
 ```
 
-#### Using 'cloud' to copy files to your cloud service
+### Using 'cloud' to copy files to your cloud service
 
 Optionally, you can copy the files in your `obsidian_folder` to your cloud service folder using the `cloud` command.
 
@@ -389,7 +389,7 @@ total size is 41587499  speedup is 136.35
 
 That's it, you've now downloaded all the stories, processed them and are ready to use Obsidian to read them, except it's a bit dull at the moment - there's no links to any characters, groups, races, objects and other interesting things. That's where `novaspark.py` comes in.
 
-## Using novaspark.py to create story stubs
+### Using novaspark.py to create story stubs
 
 At the moment, if you point Obsidian at the `obsidian_folder` you're not going to see too much.
 
