@@ -24,25 +24,32 @@ If you're not familiar with [HFY](https://old.reddit.com/r/HFY/), you're missing
 > We're a writing focused subreddit welcoming all media exhibiting the awesome potential of humanity, known as HFY or "Humanity, Fuck Yeah!"
 > We welcome sci-fi, fantasy, and all other stories with a focus on humans being awesome!
 
-The 'First Contact' HFY stories by `u/Ralts_Bloodthorne`, started on 25th Feb 2020 with a single quirky story about an alien who likes ice cream through and has grown to a huge corpus of 721 stories and 2,034,125 words (at the time of writing). Ralts' output has been phenomenal, sometimes posting 4 stories a day, and in the process occasionally triggering some Reddit spam filters!
+The 'First Contact' HFY stories by `u/Ralts_Bloodthorne`, began on 25th Feb 2020 with a single quirky story about an alien who likes ice cream and has grown to a huge corpus of 721 stories and 2,034,125 words (at the time of writing). **Ralts**' output has been phenomenal, sometimes posting 4 stories a day, and in the process occasionally triggering some Reddit spam filters!
 
-There's at least 100 characters and over 25 races or groups in the _First Contact_ universe and it can be difficult keeping up. That's one reason for making this tool. Another one is that it's crystal clear from the comments that `ralts`'s work has helped many people get through some extraordinarily difficult times, and I don't think it's an exaggeration to say that the stories and community built up around them have saved some lives. Hopefully this tool helps that community wander through the _First Contact_ universe more easily.
+There's at least 100 characters and over 25 races or groups in the _First Contact_ universe and it can be difficult keeping up. That's one reason for making this tool. Another one is that it's crystal clear from the comments that `ralts`'s work has helped many people get through some extraordinarily difficult times, and I don't think it's an exaggeration to say that the stories and community built up around them _have saved some lives_. Hopefully this tool helps that community wander through the _First Contact_ universe more easily.
 
-The tool works in tandem with the increasingly popular [Obsidian](https://obsidian.md) knowledge base, which is sometimes touted as a 'second brain'. Obsidian hosts all files locally, is free to use and is extensible through a vibrant third-party plugins and theming community which has made some exceptional plugins, including an SQL-like database engine called `dataview` that `ralts` uses extensively.
+**Ralts** makes his work available for sale through a variety of outlets, and if you want to support him, this is a great way of doing so.
+
+- PayPal: https://paypal.me/RaltsBloodthorne
+- Patreon: https://www.patreon.com/First_Contact
+- First_ContactBooks: https://www.amazon.com/gp/product/B08RYK5F88
+- BEHOLD HUMANITY! https://www.amazon.com/gp/product/B09H5ZZL93
+
+The tool works in tandem with the increasingly popular [Obsidian](https://obsidian.md) knowledge base, which is sometimes touted as a 'second brain'. _Obsidian_ hosts all files locally, is free to use and is extensible through a vibrant third-party plugins and theming community which has made some exceptional plugins, including an SQL-like database engine called `dataview` that these scripts use extensively to make it easier to navigate the universe **Ralts** has created.
 
 ## What does it do?
 
-The tool downloads stories written by `u/Ralts_Bloodthorne` and processes them into [Markdown](https://en.wikipedia.org/wiki/Markdown) files which have been marked up to allow for easy linking of stories, characters, races and other items and events of interest. An example might help, this block of text:
+The tool downloads stories written by `u/Ralts_Bloodthorne` and processes them into [Markdown](https://en.wikipedia.org/wiki/Markdown) files which have been marked up to allow for easy linking of stories, characters, races and other items and events of interest. An example might help, this block of text from Reddit:
 
 > Herod watched as Victor stood perfectly still for a long moment, his eyes closed. Herod could see dozens of VR versions of the human moving at high speed through the VR spaces of  the Black Box and knew that the thousands of clones of Victor/Dhruv were working hard even as Legion stood stock still in the middle of the room with his eyes closed.
 
-is converted into this:
+is converted into this for use in _Obsidian_:
 
 >[[Herod]] watched as [[Legion|Victor]] stood perfectly still for a long moment, his eyes closed. [[Herod]] could see dozens of VR versions of the human moving at high speed through the VR spaces of  the Black Box and knew that the thousands of clones of [[Legion|Victor]]/[[Legion|Dhruv]] were working hard even as [[Legion]] stood stock still in the middle of the room with his eyes closed.
 
-The `[[Herod]]` code is the Obsidian method of linking to a page called 'Herod' and the `[[Legion|Victor]]` code means that the word 'Victor' is shown as the link text, whilst the link is going to the page called 'Legion'. You might ask "who's this guy Legion and why is he known by so many names?". Well, that would be telling...
+The `[[Herod]]` code is the _Obsidian_ method of linking to a page called 'Herod' and the `[[Legion|Victor]]` code means that the word 'Victor' is shown as the link text, whilst the link is going to the page called 'Legion'. You might ask "who's this guy Legion and why is he known by so many names?". Well, that would be telling...
 
-This is what it eventally looks like in Obsidian, the underlined text goes to pages about the characters, the 'Herod' link goes to one page, and the 'Victor', 'Dhruv' and 'Legion' links all go the same page, 'Legion':
+This is what it eventally looks like in _Obsidian_, the underlined text links to pages about the characters, the 'Herod' link goes to one page, whilst the 'Victor', 'Dhruv' and 'Legion' links all go the same page, 'Legion':
 
 ![Herod and Legion/Victor/Dhruv](assets/herod_and_legion.png)
 
@@ -52,7 +59,7 @@ Talking of screenshots...
 
 ### Story listing
 
-This page shows all the stories that have been processed. It's based on the `dataview` plugin of Obsidian, which has some SQL-like properties which can use metadata from each story, such as the story 'Score', 'Wordcount' and the date the story was 'Published' to create dynamic lists as shown below.
+This page shows all the stories that have been processed. It's based on the `dataview` plugin of _Obsidian_, which has some SQL-like properties which can use metadata from each story, such as the story 'Score', 'Wordcount' and the date the story was 'Published' to create dynamic lists as shown below.
 
 ![all stories](assets/all_stories.png)
 
@@ -64,7 +71,7 @@ The character 'Speaks' is linked, showing that there's more information availabl
 The 'Information about this story....' block links to the main characters in this particular story, along with races present, and the races of those characters.
 ![story detail](assets/story_detail.png)
 
-There's also a lot of metadata in a story, and part of that is shown below. It's particularly useful when used in conjunction with Obsidian and the `dataview` plugin in particular.
+There's also a lot of metadata in a story, and part of that is shown below. It's particularly useful when used in conjunction with _Obsidian_ and the `dataview` plugin in particular.
 ![metadata](assets/metadata.png)
 
 ### Character detail
@@ -73,7 +80,7 @@ We clicked on 'Daxin' from the last screen. Here's some background information o
 
 
 ### Themes, themes, themes...
-[Obsidian](https://obsidian.md) has a huge theme collection, the screenshots above are the 'Dracula' theme, this is the default Obsidian light theme.
+[Obsidian](https://obsidian.md) has a huge theme collection, the screenshots above are the 'Dracula' theme, whilst this is the default _Obsidian_ light theme.
 
 It's also extensively configurable, so you're bound to find something you like. If you find one that works better for _First Contact_, please share it!
 ![default light theme](assets/default_theme.png)
@@ -108,6 +115,8 @@ novaspark.py
 The main program is `ralts.py`, and you'll interact with this most of the time. `datastructs.py` holds definitions of who is a main character, their aliases if they have any, what race they are a part of, planets and other objects of interest. `novaspark.py` is optional, but it's very helpful to create (and delete) stub files for the over 100 characters ralts has created, as well as races and objects of interest. It's called `novaspark.py` to warn you it has some power...
 
 
+Install the required `python3` libraries:
+
 ```
 % python3 pip install -r requirements.txt
 
@@ -117,7 +126,7 @@ The main program is `ralts.py`, and you'll interact with this most of the time. 
 
 The `bdfr` module is a large multi-purpose Reddit post downloader, and loads in quite a few other modules.
 
-Here's the output of the `./ralts.py -h` command:
+Once the libraries are installed, here's the output of the `./ralts.py -h` command:
 
 ```
 -> python3 ralts.py -h
@@ -201,11 +210,13 @@ ralts:
   cloud_folder: 'Library/Mobile Documents/iCloud~md~obsidian/Documents/First Contact'
 ```
 
+You'll likely need to change a few items in the configuration file.
+
 The most important items to change are `bdfr_folder` and `obsidian_folder`.
 The `bdfr_folder` is where the stories downloaded from Reddit are placed.
 The script will create an `HFY` folder if one doesn't exist.
 The default value of '.' means to create the `HFY` folder in the same folder the script is run from, but the folder can be located anywhere you have permissions to do so.
-The `obsidian_folder` is where your Obsidian 'vault' is, ie the folder where you have your .obsidian folder. This can also be anywhere, including any cloud syncing (iCloud, DropBox etc) service you use.
+The `obsidian_folder` is where your _Obsidian_ 'vault' is, ie the folder where _Obsidian_ has created an `.obsidian` folder. This can also be anywhere you have permission to place it, including any cloud syncing (iCloud, DropBox etc) service you use.
 
 ```
 % python3 ralts.py mattrans --all
@@ -238,11 +249,11 @@ Ralts_Bloodthorne_Born Whole_f9porg.json
 ...
 ```
 
-Notice that all these are all `JSON` files.
+Notice that all these are all `JSON` files. We will need to process them into `markdown` files suitable for _Obsidian_.
 
 ### Using 'suds' to process files into stories
 
-To process the files for usage as stories in Obsidian, you use the `suds` command.
+To process the files for usage as stories in _Obsidian_, you use the `suds` command.
 
 ```
 % python3 ralts.py suds --all
@@ -396,11 +407,11 @@ sent 304868 bytes  received 142 bytes  610020.00 bytes/sec
 total size is 41587499  speedup is 136.35
 ```
 
-That's it, you've now downloaded all the files, processed them into stories and are ready to use Obsidian to read them, except it's a bit dull at the moment - there's no links to any characters, groups, races, objects and other interesting things. That's where `novaspark.py` comes in.
+That's it, you've now downloaded all the files, processed them into stories and are ready to use _Obsidian_ to read them, except it's a bit dull at the moment - there's no links to any characters, groups, races, objects and other interesting things. That's where `novaspark.py` comes in.
 
 ### Using novaspark.py to create story stubs
 
-At the moment, if you point Obsidian at the `obsidian_folder` you're not going to see too much. It's also using the default theme, not the 'Dracula' theme I showed above.
+At the moment, if you point _Obsidian_ at the `obsidian_folder` you're not going to see too much. It's also using the default theme, not the 'Dracula' theme I showed above.
 
 ![721 stories - how do I read them?](assets/new_obsidian_view.png)
 
@@ -412,7 +423,7 @@ Stories
 
 This is where `novaspark.py` comes in, it creates stubs for 134 characters, various groups, races, planets, ships and other interesting objects and events that occur in the _First Contact_ universe.
 
-There are several templates in the `novaspark.py` script that can be modified. There are separate templates for characters, objects and another group of files which create pages like the 'List of Stories' page shown above. To really benefit from the templates, you'll need to install the `dataview` plugin into Obsidian, and how to do this is described below.
+There are several templates in the `novaspark.py` script that can be modified. There are separate templates for characters, objects and another group of files which create pages like the 'List of Stories' page shown above. To really benefit from the templates, you'll need to install the `dataview` plugin into _Obsidian_, and how to do this is described below.
 
 ```
 % python3 ./novaspark.py -h
@@ -535,7 +546,7 @@ No previous story.md has been deleted.
 
 You'll then find the `obsidian_folder` is empty except for the folder containing the Stories - that doesn't get deleted.
 
-Assuming you haven't used the `destroy` command, Obsidian will look something like this, which is the default 'editing' mode:
+Assuming you haven't used the `destroy` command, _Obsidian_ will look something like this, which is the default 'editing' mode:
 
 ![Obsidian showing 471 in edit mode](assets/obsidian_showing_471_in_edit_mode.png)
 
@@ -543,7 +554,7 @@ If you switch to 'read' mode, by clicking the glasses, you'll get something like
 
 ![Obsidian showing 471 in read mode](assets/obsidian_showing_471_in_read_mode.png)
 
-Which is a lot better, but we just need to enable the `dataview` and `admonitions` plugins, to bring really use Obsidian at its potential.
+Which is a lot better, but we just need to enable the `dataview` and `admonitions` plugins, to bring really use _Obsidian_ at its potential.
 
 ## Setting up Obsidian to use dataview and admonitions
 
@@ -577,7 +588,7 @@ You'll also need to 'Enable Javascript Queries' for `dataview`.
 
 ![Admonitions plugin](assets/obsidian_options_6.png)
 
-You'll probably need to restart Obsidian, and when you do you'll see something like this:
+You'll probably need to restart _Obsidian_, and when you do you'll see something like this:
 
 ![471 and all his stories](assets/471_and_all_his_stories.png)
 
@@ -591,5 +602,10 @@ As a final bonus, if you scroll to the end of the story, you'll get the top-leve
 ![Top level comments](assets/top_level_comments.png)
 
 Hope you like this and it helps you to get more enjoyment from Ralt's work. Don't forget, he has all his work available for purchase on Amazon and elsewhere.
+
+- PayPal: https://paypal.me/RaltsBloodthorne
+- Patreon: https://www.patreon.com/First_Contact
+- First_ContactBooks: https://www.amazon.com/gp/product/B08RYK5F88
+- BEHOLD HUMANITY! https://www.amazon.com/gp/product/B09H5ZZL93
 
 -- languidphoton, March 2022
