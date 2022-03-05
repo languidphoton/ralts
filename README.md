@@ -2,6 +2,19 @@
 
 > This page is a 'trial balloon' set up for people on the Discord server
 
+## Contents
+
+- [What's this about?](#whats-this-about)
+- [What does it do?](#what-does-it-do)
+- [What does the output look like?](#what-does-the-output-look-like)
+- [Installing](#installing)
+- [Typical usage](#typical-usage)
+    - [Using 'mattrans' - getting files from Reddit](#using-mattrans---getting-files-from-reddit)
+    - [Using 'suds' to process files into stories](#using-suds-to-process-files-into-stories)
+    - [Using 'cloud' to copy files to your cloud service](#using-cloud-to-copy-files-to-your-cloud-service)
+- [Using novaspark.py to create story stubs](#using-novasparkpy-to-create-story-stubs)
+- [Setting up Obsidian](#setting-up-obsidian-to-use-dataview-and-admonitions)
+
 ## What's this about?
 
 This tool downloads and processes the _First Contact_ stories from `r/HFY`.
@@ -153,6 +166,8 @@ If you've read the _First Contact_ stories you'll understand why I've chosen `su
 
 An initial run might look something like:
 
+### Using 'mattrans' - getting files from Reddit
+
 ```
 # download the posts from Reddit
 
@@ -215,6 +230,9 @@ Ralts_Bloodthorne_Born Whole_f9porg.json
 ```
 
 Notice that all these are all `JSON` files.
+
+#### Using 'suds' to process files into stories
+
 To process the files into for usage in Obsidian can, you use the `suds` command.
 
 ```
@@ -254,7 +272,16 @@ Third Wave - Chapter 421_liu59d.md
 XXX - INTERLUDE_id05mr.md
 ```
 
-Optionally, you can copy the files in your `obsidian_folder` to your cloud service, this is after a full `suds` processing of all 727 stories, so all files are copied.
+#### Using 'cloud' to copy files to your cloud service
+
+Optionally, you can copy the files in your `obsidian_folder` to your cloud service folder using the `cloud` command.
+
+> **CAVEAT**
+>
+> The `cloud` command uses the `rsync` command which is common on MacOS. I don't know what the equivalent is on Windows. Some workarounds are: 1) don't bother with cloud services, 2) copy _all_ the files from the `obsidian_folder` to the `cloud_folder` or 3) to make the `obsidian_folder` the same as your `cloud_folder` so that as you run a `suds` command, you automatically populate your cloud service folder.
+
+This is after a full `suds` processing of all 727 stories, so all files are copied.
+
 ```
 % python3 ralts.py cloud
 Reading from config file: config/config.yml
@@ -324,11 +351,7 @@ sent 556168 bytes  received 252 bytes  1112840.00 bytes/sec
 total size is 41586604  speedup is 74.74
 ```
 
-> **CAVEAT**
->
-> The `cloud` command uses the `rsync` command which is common on MacOS. I don't know what the equivalent is on Windows. Some workarounds are: 1) don't bother with cloud services, 2) copy _all_ the files from the `obsidian_folder` to the `cloud_folder` or 3) to make the `obsidian_folder` the same as your `cloud_folder` so that as you run a `suds` command, you automatically populate your cloud service folder.
-
-### Updating the story list
+### Using 'blueberries' to get and process most recent stories
 
 This process of downloading, processing and copying to cloud storage can get boring, so there's a command that does all three for you, `blueberries` (it's a bit of an in-joke). `blueberries` gets the number of stories to download and process from the `storycount` parameter in the config file, which is `config/config.yml` by default. `storycount` is 5 by default, but you can change that if you want.
 
@@ -366,7 +389,7 @@ total size is 41587499  speedup is 136.35
 
 That's it, you've now downloaded all the stories, processed them and are ready to use Obsidian to read them, except it's a bit dull at the moment - there's no links to any characters, groups, races, objects and other interesting things. That's where `novaspark.py` comes in.
 
-## Using novaspark.py to populate characters
+## Using novaspark.py to create story stubs
 
 At the moment, if you point Obsidian at the `obsidian_folder` you're not going to see too much.
 
@@ -513,7 +536,7 @@ If you switch to 'read' mode, by clicking the glasses, you'll get something like
 
 Which is a lot better, but we just need to enable the `dataview` and `admonitions` plugins, to bring really use Obsidian at its potential.
 
-## Enabling Obsidian to use dataview and admonitions
+## Setting up Obsidian to use dataview and admonitions
 
 This will be quite quick, as this is already a bit too long.
 
