@@ -278,7 +278,7 @@ sent 36040658 bytes  received 16044 bytes  24037801.33 bytes/sec
 total size is 41586604  speedup is 1.15
 ```
 
-If you run the command again immediately, you get the following:
+If you run the command again without changing any files in the `obsidian_folder`, you get the following:
 
 ```
 % python3 ralts.py cloud
@@ -363,3 +363,201 @@ Stories/Chapter [Error code_ Checksum Fail chNumSeq.log]_t4sunb.md
 sent 304868 bytes  received 142 bytes  610020.00 bytes/sec
 total size is 41587499  speedup is 136.35
 ```
+
+That's it, you've now downloaded all the stories, processed them and are ready to use Obsidian to read them, except it's a bit dull at the moment - there's no links to any characters, groups, races, objects and other interesting things. That's where `novaspark.py` comes in.
+
+## Using novaspark.py to populate characters
+
+At the moment, if you point Obsidian at the `obsidian_folder` you're not going to see too much.
+
+![721 stories - how do I read them?](assets/new_obsidian_view.png)
+
+And this is what the folder looks like from the command line:
+```
+% ls First\ Contact/
+Stories
+```
+
+This is where `novaspark.py` comes in, it creates stubs for 134 characters, various groups, races, planets, ships and other interesting objects and events that occur in the _First Contact_ universe.
+
+There are several templates in the `novaspark.py` script that can be modified. There are separate templates for characters, objects and another group of files which create pages like the 'List of Stories' page shown above. To really benefit from the templates, you'll need to install the `dataview` plugin into Obsidian, which is described below.
+
+```
+% python3 ./novaspark.py -h
+novaspark.py
+
+Obliterate or Create everything...
+Your choice.
+
+Usage:
+    novaspark.py create [--replace] [-d|--debug]
+    novaspark.py destroy [-d|--debug]
+    novaspark.py redo [-d|--debug]
+    novaspark.py planetcrack [-d|--debug]
+    novaspark.py -h --help
+
+Commands:
+    create      Create a page for all characters, planets, ships and objects mentioned
+                 in datastructs.py. Also create dynamically generated 'Story List'
+                 and other special pages
+    destroy     Destroy all pages mentioned in datastructs.py (this will leave your created
+                 files alone), confirmation required
+    redo        Same as 'destroy' and 'create'. Use if you've modified templates,
+                 confirmation required
+    planetcrack Destroy everything except for the processed stories in 'Stories' folder,
+                 confirmation required
+
+Options:
+    --replace   If a file exists, replace it [default: False]
+    -d --debug  Print some debug information [default: False]
+    -h --help   Show this screen
+```
+
+The simplest thing to do is to run the `create` command. The other comands clean out the files in the `obsidian_folder` or replace them (you'd do this if you had modified the template). You'll get something like this:
+
+```
+% python3 ./novaspark.py create
+Reading from config file: config/config.yml
+Working with Obsidian folder: 'environments/env1/First Contact'
+
+Creating character files
+Cheekeet is created, Digital Omnimessiah be praised!
+Eekreek is created, Digital Omnimessiah be praised!
+Kikteek is created, Digital Omnimessiah be praised!
+Dalvanak is created, Digital Omnimessiah be praised!
+Shandaar is created, Digital Omnimessiah be praised!
+Kandi'kayn is created, Digital Omnimessiah be praised!
+Sam is created, Digital Omnimessiah be praised!
+...
+...
+Creating ship files
+Goliath is created, thank your local creation engine!
+Harvester is created, thank your local creation engine!
+Juton is created, thank your local creation engine!
+
+Creating planet files
+Hesstla is created, thank your local creation engine!
+Terra is created, thank your local creation engine!
+Delmek-4 is created, thank your local creation engine!
+Tubaven is created, thank your local creation engine!
+
+Creating 'interesting objects and events' files
+Immortal is created, thank your local creation engine!
+BATACNET is created, thank your local creation engine!
+BOLO is created, thank your local creation engine!
+Precursor is created, thank your local creation engine!
+...
+...
+All stories is created, thank your local creation engine!
+Top 20 longest stories is created, thank your local creation engine!
+```
+
+Your `obsidian_folder` will now look something like this, currently 140 new files have been created:
+
+```
+% ls First\ Contact/
+471.md                     Flower Patch.md            Omniqueen.md
+800 pounds.md              Friend Plague.md           On'drat.md
+A'ama'arya.md              Ge'ermo'o.md               On'trak.md
+A'armo'o.md                Glassing.md                P'Kank.md
+AWM.md                     Goliath.md                 P'Thok.md
+Acharya.md                 Great Herd.md              PAWM.md
+All stories.md             Ha'almo'or.md              Peel.md
+Alma'ana.md                Hamburger Kingdom.md       Peter.md
+Atomic Hooves.md           Harvester.md               Plunex.md
+BATACNET.md                Hate Anvils.md             Plunketi'ik.md
+BOLO.md                    Hateful Mars.md            Precursor.md
+...
+...
+Ellie.md                   Nee.md                     Undrat.md
+Elu.md                     Nemta.md                   Vuxten.md
+ExecSec.md                 No next story.md           Wrath Forges.md
+Executor.md                No previous story.md       Wrathful Mercury.md
+Falmo'o.md                 NoDra'ak.md                klikitik.md
+Fenn.md                    Novastar VII.md            neo-sapient.md
+Floofy.md                  Nultrik.md
+```
+
+Should you want to start over, you use the `destroy` command, and as it will delete a lot of files, you get the chance to confirm:
+
+```
+❯ ./novaspark.py destroy
+Reading from config file: config/config.yml
+Working with Obsidian folder: 'environments/env1/First Contact'
+You're gonna delete stuff (you'll be sorry), sure? [y/n]: y
+Ok, it's your funeral. Executing...
+
+Deleting character files
+Cheekeet.md has been deleted.
+Eekreek.md has been deleted.
+Kikteek.md has been deleted.
+Dalvanak.md has been deleted.
+Shandaar.md has been deleted.
+Kandi'kayn.md has been deleted.
+...
+...
+Top 20 stories by score.md has been deleted.
+No next story.md has been deleted.
+No previous story.md has been deleted.
+```
+
+You'll then find the `obsidian_folder` is empty except for the folder containing the Stories - that doesn't get deleted.
+
+Assuming you haven't used the `destroy` command, Obsidian will look something like this, which is the default 'editing' mode:
+
+![Obsidian showing 471 in edit mode](assets/obsidian_showing_471_in_edit_mode.png)
+
+If you switch to 'read' mode, by clicking the glasses, you'll get something like this:
+
+![Obsidian showing 471 in read mode](assets/obsidian_showing_471_in_read_mode.png)
+
+Which is a lot better, but we just need to enable the `dataview` and `admonitions` plugins, to bring really use Obsidian at its potential.
+
+## Enabling Obsidian to use dataview and admonitions
+
+This will be quite quick, as this is already a bit too long.
+
+1. Open the Obsidian options panel (Cmd-, or CTRL-,)
+
+![Main Obsidian options page](assets/obsidian_options_1.png)
+
+2. Go to the 'Community plugins' section and turn OFF the 'Safe mode'
+
+![Safe mode for community plugins](assets/obsidian_options_2.png)
+
+3. You'll get a warning popup, read it and 'Turn off Safe Mode'
+
+![Select the 'Browse' button for Community Plugins](assets/obsidian_options_3.png)
+
+4. Select the 'Browse' button and look for 'Dataview' and 'Admonitions'
+
+![The 'dataview' plugin](assets/obsidian_options_4.png)
+
+5. Install the 'Dataview' plugin and 'Enable' it
+
+![Enabling the 'dataview' plugin](assets/obsidian_options_5.png)
+
+You'll also need to 'Enable Javascript Queries' for `dataview`.
+
+![Enabling Javascript Queries](assets/enable_javascript_queries.png)
+
+6. Install and Enable the 'Admonitions' plugin in the same way
+
+![Admonitions plugin](assets/obsidian_options_6.png)
+
+You'll probably need to restart Obsidian, and when you do you'll see something like this:
+
+![471 and all his stories](assets/471_and_all_his_stories.png)
+
+This is all enabled by the `dataview` plugin,
+Click on the top story to see the first time 471 was mentioned:
+
+![471's first appearance](assets/471_first_appearance.png)
+
+As a final bonus, if you scroll to the end of the story, you'll get the top-level comments on the story along with links directly to that comment on Reddit. It's only the top-level as getting the code to work was a royal pain, and I wanted to get this out as soon as possible.
+
+![Top level comments](assets/top_level_comments.png)
+
+Hope you like this and it helps you to get more enjoyment from Ralt's work. Don't forget, he has all his work available for purchase on Amazon and elsewhere.
+
+-- languidphoton, March 2022
