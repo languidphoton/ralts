@@ -1,6 +1,6 @@
 # Ralts - a 'First Contact' story downloader/processor
 
-> This page is a 'trial balloon' set up for people on the Discord server
+> This page is a 'trial balloon' set up for people on the Discord server to iron out issues and to see whether I should release the source code or not.
 
 ## Contents
 
